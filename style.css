@@ -1,23 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease;
 }
 
-:root{
-    --green: #43aa8b;
-    --red: #bc4749;
+:root {
+    --pink: #ff6b81;
+    --light-yellow: #fef2e4;
+    --peach: #f9c6a0;
+    --mint: #b8e0d2;
+    --dark-brown: #4a2c2a;
+    --accent: #f9f4f0;
+    --shadow: rgba(0, 0, 0, 0.2);
 }
 
-body{
-    background-color: #edf6f9;
-    font-family: 'Andika New Basic', sans-serif;
-    color: #2f3e46;
+body {
+    background-color: var(--accent);
+    font-family: 'Dancing Script', cursive;
+    color: var(--dark-brown);
+    padding: 0 15px;
 }
 
-.container{
+.container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -26,7 +33,7 @@ body{
     padding-top: 3rem;
 }
 
-.budget__numbers{
+.budget__numbers {
     display: flex;
     justify-content: space-between;
     width: 70%;
@@ -34,127 +41,175 @@ body{
     margin: 1rem 0 3rem;
 }
 
-.number{
+.number {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 10px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px var(--shadow);
+    transition: transform 0.4s ease-in-out;
 }
 
-.amount__container{
+.number:hover {
+    transform: scale(1.05);
+}
+
+.amount__container {
     display: flex;
 }
 
-#amount__earned,#earned__symbol{color: var(--green);}
-#amount__spent,#spent__symbol{color: var(--red);}
+#amount__earned, #earned__symbol {
+    color: var(--mint);
+}
 
-.input__area input{
-    border: none;
-    padding: 10px;
+#amount__spent, #spent__symbol {
+    color: var(--pink);
+}
+
+.input__area input {
+    border: 2px solid #ffb6b9;
+    padding: 12px;
     border-radius: 15px;
     outline: none;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    font-family: 'Dancing Script', cursive;
 }
 
-.input__area #description{
-    width: 330px;
+.input__area input:focus {
+    border-color: var(--mint);
 }
 
-.input__area #amount{
-    width: 70px;
+.input__area #description {
+    width: 100%;
+}
+
+.input__area #amount {
+    width: 120px;
     text-align: center;
 }
 
-/* remove arrows from number input */
 .input__area input::-webkit-outer-spin-button,
-.input__area input::-webkit-inner-spin-button{
+.input__area input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.buttons__area{
-    margin: 10px 0 3rem;
+.buttons__area {
+    margin: 15px 0 3rem;
 }
 
 .buttons__area #add__income,
-.buttons__area #add__expense{
+.buttons__area #add__expense {
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     color: white;
-    border-radius: 15px;
+    border-radius: 30px;
     outline: none;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-#add__income{background-color: var(--green);}
-#add__expense{background-color: var(--red);}
+#add__income {
+    background-color: var(--mint);
+}
 
-.items__container{
+#add__expense {
+    background-color: var(--pink);
+}
+
+#add__income:hover, #add__expense:hover {
+    transform: scale(1.1);
+    background-color: var(--peach);
+}
+
+.items__container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 70%;
     max-width: 700px;
+    margin-top: 2rem;
 }
 
-#income__container h2{color: var(--green);}
-#expenses__container h2{color: var(--red);}
+#income__container h2 {
+    color: var(--mint);
+}
 
-.items__container .container{
+#expenses__container h2 {
+    color: var(--pink);
+}
+
+.items__container .container {
     width: 49%;
-    border-radius: 15px;
+    border-radius: 20px;
+    background-color: var(--light-yellow);
+    padding: 10px;
+    box-shadow: 0 4px 10px var(--shadow);
 }
 
-.container .item{
+.container .item {
     width: 100%;
     background-color: white;
-    border-radius: 15px;
-    margin: 5px 0;
+    border-radius: 20px;
+    margin: 10px 0;
     display: flex;
     justify-content: space-between;
-    padding: 5px 40px 5px 30px;
+    padding: 15px;
     position: relative;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: transform 0.4s ease-in-out;
+}
+
+.container .item:hover {
+    transform: translateY(-5px);
+    background-color: var(--mint);
 }
 
 .item__income,
-.item__expense{
+.item__expense {
     display: flex;
 }
 
-.income span, .income p{color: var(--green);}
-.expense span, .expense p{color: var(--red);}
+.income span, .income p {
+    color: var(--mint);
+}
 
-.item .far{
+.expense span, .expense p {
+    color: var(--pink);
+}
+
+.item .far {
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 30px;
+    top: 5px;
+    right: 5px;
+    height: 40px;
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: var(--red);
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    background-color: var(--pink);
+    border-radius: 50%;
     cursor: pointer;
-    transform: translateX(30px);
     opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.3s, transform 0.3s;
 }
 
-.item:hover .far{
-    animation: showDelete;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+.item:hover .far {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-@keyframes showDelete{
-    0%{
+@keyframes showDelete {
+    0% {
         transform: translateX(30px);
         opacity: 0;
     }
-    100%{
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
